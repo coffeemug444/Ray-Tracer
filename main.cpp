@@ -193,8 +193,10 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 	if ((key == GLFW_KEY_LEFT_CONTROL) && ( action == GLFW_PRESS)) {
 		if (glfwGetInputMode(window, GLFW_CURSOR) == GLFW_CURSOR_DISABLED) {
 			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+			glfwSetCursorPosCallback(window, NULL);
 		} else {
 			glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+			glfwSetCursorPosCallback(window, mouse_callback);
 		}
 	}
 }
